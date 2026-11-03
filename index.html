@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sapna Supermarket | Osmanpura</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+background:#fffdf7;
+color:#292929;
+}
+
+header{
+background:white;
+padding:17px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:15px;
+box-shadow:0 3px 15px #ddd;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+font-size:23px;
+font-weight:800;
+color:#f4511e;
+}
+
+.logo span{color:#269b58}
+
+nav a{
+text-decoration:none;
+color:#333;
+margin:8px;
+font-size:14px;
+font-weight:600;
+}
+
+nav a:hover{color:#f4511e}
+
+.btn{
+display:inline-block;
+padding:13px 25px;
+border-radius:30px;
+background:#ffca28;
+color:#222;
+text-decoration:none;
+font-weight:700;
+border:none;
+cursor:pointer;
+}
+
+.hero{
+min-height:540px;
+padding:75px 8%;
+background:linear-gradient(120deg,#ff512f,#ff9800,#ffca28);
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:35px;
+flex-wrap:wrap;
+color:white;
+}
+
+.hero-content{
+max-width:570px;
+}
+
+.hero h1{
+font-size:50px;
+line-height:1.2;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:17px;
+margin-bottom:25px;
+}
+
+.hero img{
+width:390px;
+max-width:100%;
+height:300px;
+object-fit:cover;
+border-radius:25px;
+border:6px solid white;
+}
+
+.section{
+padding:65px 7%;
+}
+
+.title{
+text-align:center;
+font-size:32px;
+font-weight:800;
+margin-bottom:15px;
+color:#f4511e;
+}
+
+.subtitle{
+text-align:center;
+color:#777;
+margin-bottom:40px;
+}
+
+.categories{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:20px;
+}
+
+.category{
+background:white;
+padding:25px 10px;
+text-align:center;
+border-radius:18px;
+box-shadow:0 4px 18px #eee;
+transition:.3s;
+border-bottom:4px solid #ff9800;
+}
+
+.category:hover{
+transform:translateY(-8px);
+background:#fff3e0;
+}
+
+.category span{
+font-size:40px;
+display:block;
+margin-bottom:10px;
+}
+
+.category h3{
+font-size:14px;
+}
+
+.category p{
+font-size:11px;
+color:#888;
+margin-top:5px;
+}
+
+.highlight{
+background:#e8f5e9;
+border-radius:20px;
+padding:40px;
+text-align:center;
+}
+
+.highlight h2{
+color:#269b58;
+font-size:30px;
+margin-bottom:12px;
+}
+
+.items{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:22px;
+}
+
+.item{
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 4px 18px #eee;
+transition:.3s;
+}
+
+.item:hover{
+transform:translateY(-7px);
+}
+
+.item img{
+width:100%;
+height:190px;
+object-fit:cover;
+}
+
+.item h3{
+padding:15px;
+text-align:center;
+color:#333;
+}
+
+/* BIG GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+.gallery-box{
+height:270px;
+overflow:hidden;
+border-radius:20px;
+position:relative;
+cursor:pointer;
+}
+
+.gallery-box img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.5s;
+}
+
+.gallery-box:hover img{
+transform:scale(1.12);
+}
+
+.gallery-box h3{
+position:absolute;
+bottom:0;
+width:100%;
+padding:18px;
+color:white;
+background:linear-gradient(transparent,#000);
+}
+
+.about{
+background:linear-gradient(120deg,#7b1fa2,#512da8);
+color:white;
+text-align:center;
+border-radius:25px;
+padding:55px 25px;
+}
+
+.about h2{
+font-size:32px;
+margin-bottom:20px;
+}
+
+.about p{
+max-width:800px;
+margin:auto;
+line-height:2;
+}
+
+.contact{
+background:#fff3e0;
+text-align:center;
+padding:65px 20px;
+}
+
+.contact h2{
+font-size:32px;
+color:#e65100;
+margin-bottom:20px;
+}
+
+.contact p{
+margin:12px;
+}
+
+.contact a{
+color:#e65100;
+font-weight:bold;
+}
+
+footer{
+background:#25213b;
+color:white;
+text-align:center;
+padding:30px 15px;
+line-height:2;
+}
+
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25d366;
+color:white;
+padding:15px 20px;
+border-radius:40px;
+text-decoration:none;
+font-weight:bold;
+z-index:200;
+box-shadow:0 3px 15px #aaa;
+}
+
+.lightbox{
+display:none;
+position:fixed;
+inset:0;
+background:#000e;
+z-index:500;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.lightbox img{
+max-width:95%;
+max-height:85vh;
+border-radius:15px;
+}
+
+.lightbox.active{
+display:flex;
+}
+
+.close{
+position:absolute;
+top:20px;
+right:30px;
+font-size:40px;
+color:white;
+cursor:pointer;
+}
+
+@media(max-width:800px){
+
+.gallery{
+grid-template-columns:repeat(2,1fr);
+}
+
+.hero{
+text-align:center;
+justify-content:center;
+}
+
+.hero h1{
+font-size:36px;
+}
+
+}
+
+@media(max-width:500px){
+
+.gallery{
+grid-template-columns:1fr;
+}
+
+.gallery-box{
+height:260px;
+}
+
+header{
+justify-content:center;
+}
+
+nav{
+text-align:center;
+}
+
+.title{
+font-size:26px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="logo">
+🛒 SAPNA <span>SUPERMARKET</span>
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#categories">Categories</a>
+<a href="#products">Products</a>
+<a href="#gallery">Gallery</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h1>
+Your Everyday<br>
+Shopping Destination!
+</h1>
+
+<p>
+सर्व किराणा आणि घरगुती वस्तू एकाच ठिकाणी!
+
+Welcome to Sapna Supermarket,
+New Osmanpura, Chhatrapati Sambhajinagar.
+</p>
+
+<a href="#categories" class="btn">
+Explore Categories →
+</a>
+
+</div>
+
+<img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900"
+alt="Grocery Store">
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="section" id="categories">
+
+<h2 class="title">🛍️ All Shopping Categories</h2>
+
+<p class="subtitle">
+Everything For Your Daily Needs
+</p>
+
+<div class="categories">
+
+<div class="category">
+<span>🍚</span>
+<h3>Rice & Grains</h3>
+<p>तांदूळ आणि धान्य</p>
+</div>
+
+<div class="category">
+<span>🫘</span>
+<h3>Dal & Pulses</h3>
+<p>डाळी आणि कडधान्य</p>
+</div>
+
+<div class="category">
+<span>🌶️</span>
+<h3>Spices & Masala</h3>
+<p>मसाले</p>
+</div>
+
+<div class="category">
+<span>🫒</span>
+<h3>Cooking Oil</h3>
+<p>खाद्यतेल</p>
+</div>
+
+<div class="category">
+<span>🍪</span>
+<h3>Biscuits</h3>
+<p>बिस्किटे</p>
+</div>
+
+<div class="category">
+<span>🍫</span>
+<h3>Chocolates</h3>
+<p>चॉकलेट</p>
+</div>
+
+<div class="category">
+<span>🥤</span>
+<h3>Cold Drinks</h3>
+<p>शीतपेये</p>
+</div>
+
+<div class="category">
+<span>☕</span>
+<h3>Tea & Coffee</h3>
+<p>चहा आणि कॉफी</p>
+</div>
+
+<div class="category">
+<span>🥛</span>
+<h3>Dairy Products</h3>
+<p>दुग्धजन्य पदार्थ</p>
+</div>
+
+<div class="category">
+<span>🧴</span>
+<h3>Personal Care</h3>
+<p>वैयक्तिक निगा</p>
+</div>
+
+<div class="category">
+<span>🧼</span>
+<h3>Soaps & Shampoo</h3>
+<p>साबण आणि शॅम्पू</p>
+</div>
+
+<div class="category">
+<span>🧹</span>
+<h3>Cleaning Products</h3>
+<p>स्वच्छता उत्पादने</p>
+</div>
+
+<div class="category">
+<span>🍜</span>
+<h3>Noodles & Pasta</h3>
+<p>नूडल्स आणि पास्ता</p>
+</div>
+
+<div class="category">
+<span>🍞</span>
+<h3>Bakery Products</h3>
+<p>बेकरी वस्तू</p>
+</div>
+
+<div class="category">
+<span>🧂</span>
+<h3>Salt & Sugar</h3>
+<p>मीठ आणि साखर</p>
+</div>
+
+<div class="category">
+<span>🪥</span>
+<h3>Daily Essentials</h3>
+<p>दैनंदिन गरजेच्या वस्तू</p>
+</div>
+
+<div class="category">
+<span>🪔</span>
+<h3>Puja Items</h3>
+<p>पूजेचे साहित्य</p>
+</div>
+
+<div class="category">
+<span>📦</span>
+<h3>Household Items</h3>
+<p>घरगुती वस्तू</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- HIGHLIGHT -->
+
+<section class="section">
+
+<div class="highlight">
+
+<h2>🌟 Everything Under One Roof!</h2>
+
+<p>
+आपल्या रोजच्या गरजेच्या वस्तूंसाठी
+एकाच ठिकाणी भेट द्या!
+</p>
+
+<br>
+
+<a href="#contact" class="btn">
+Visit Our Store
+</a>
+
+</div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section class="section" id="products">
+
+<h2 class="title">🛒 Our Grocery Collection</h2>
+
+<p class="subtitle">
+A glimpse of everyday grocery essentials
+</p>
+
+<div class="items">
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600">
+<h3>Rice & Grains</h3>
+</div>
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1515543904379-3d757afe72e4?w=600">
+<h3>Fresh Fruits</h3>
+</div>
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600">
+<h3>Spices & Masala</h3>
+</div>
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600">
+<h3>Biscuits & Snacks</h3>
+</div>
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600">
+<h3>Juices & Beverages</h3>
+</div>
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=600">
+<h3>Cooking Oil</h3>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section class="section" id="gallery">
+
+<h2 class="title">📸 Our Gallery</h2>
+
+<p class="subtitle">
+Explore Our Grocery Collection & Store
+</p>
+
+<div class="gallery">
+
+<div class="gallery-box" onclick="showImage(this)">
+<img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=1000">
+<h3>Grocery Collection</h3>
+</div>
+
+<div class="gallery-box" onclick="showImage(this)">
+<img src="https://images.unsplash.com/photo-1604719312566-8912e9c8a213?w=1000">
+<h3>Supermarket Shelves</h3>
+</div>
+
+<div class="gallery-box" onclick="showImage(this)">
+<img src="https://images.unsplash.com/photo-1579113800032-c38bd7635818?w=1000">
+<h3>Daily Essentials</h3>
+</div>
+
+<div class="gallery-box" onclick="showImage(this)">
+<img src="https://images.unsplash.com/photo-1608686207856-001b95cf60ca?w=1000">
+<h3>Fresh Grocery</h3>
+</div>
+
+<div class="gallery-box" onclick="showImage(this)">
+<img src="https://images.unsplash.com/photo-1580913428735-bd3c269d6a82?w=1000">
+<h3>Shopping Products</h3>
+</div>
+
+<div class="gallery-box" onclick="showImage(this)">
+<img src="https://images.unsplash.com/photo-1601599561213-832382fd07ba?w=1000">
+<h3>Food Collection</h3>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox" onclick="closeImage()">
+
+<span class="close">&times;</span>
+
+<img id="largeImage" src="">
+
+</div>
+
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+<div class="about">
+
+<h2>❤️ About Sapna Supermarket</h2>
+
+<p>
+Welcome to Sapna Supermarket!
+
+आमचे दुकान New Osmanpura,
+Chhatrapati Sambhajinagar येथे आहे.
+
+आपल्या रोजच्या गरजेच्या किराणा,
+खाद्यपदार्थ, वैयक्तिक निगा आणि
+घरगुती वस्तूंसाठी आमच्या दुकानाला भेट द्या.
+
+Thank you for shopping with us!
+</p>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<h2>📍 Visit Our Store</h2>
+
+<h3>Sapna Supermarket</h3>
+
+<p>Dashmesh Nagar, New Osmanpura</p>
+
+<p>Chhatrapati Sambhajinagar, Maharashtra 431005</p>
+
+<p>📞 Contact: 7030644238</p>
+
+<br>
+
+<a href="tel:7030644238" class="btn">
+Call Now
+</a>
+
+<br><br>
+
+<a href="https://www.google.com/maps/search/?api=1&query=Sapna+Supermarket+Dashmesh+Nagar+New+Osmanpura+Aurangabad"
+class="btn" target="_blank">
+📍 Get Directions
+</a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<h2>🛒 SAPNA SUPERMARKET</h2>
+
+<p>Your Everyday Shopping Destination</p>
+
+<p>New Osmanpura, Chhatrapati Sambhajinagar</p>
+
+<p>© 2026 Sapna Supermarket</p>
+
+<p>Website Designed by JayTech Studio</p>
+
+</footer>
+
+
+<!-- WHATSAPP -->
+
+<a href="https://wa.me/917030644238?text=Hello%20Sapna%20Supermarket"
+class="whatsapp" target="_blank">
+
+WhatsApp 💬
+
+</a>
+
+
+<script>
+
+function showImage(element){
+
+let image=element.querySelector("img").src;
+
+document.getElementById("largeImage").src=image;
+
+document.getElementById("lightbox").classList.add("active");
+
+}
+
+function closeImage(){
+
+document.getElementById("lightbox").classList.remove("active");
+
+}
+
+</script>
+
+</body>
+</html>
